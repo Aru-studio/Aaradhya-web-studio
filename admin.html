@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Aaradhya Web Studio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+  <div class="bg-glow glow-3"></div>
+
+  <!-- Login Modal -->
+  <div id="login-overlay" class="login-overlay">
+    <div class="glass-card login-card">
+      <h2 style="margin-bottom: 20px;">Admin Login</h2>
+      <input type="text" id="admin-user" class="admin-input" placeholder="Username (Aaradhya358)" />
+      <input type="password" id="admin-pass" class="admin-input" placeholder="Password (Aaradhya358)" />
+      <button id="login-btn" class="btn primary" style="width: 100%;">Login</button>
+      <p id="login-error" style="color: #ef4444; margin-top: 10px; display: none;">Invalid credentials</p>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="container nav-wrap" style="justify-content: space-between;">
+      <a href="index.html" class="brand">
+        <span>
+          <strong>Aaradhya Admin Server</strong>
+          <small>Manage Website Content</small>
+        </span>
+      </a>
+      <div class="nav-actions">
+        <a href="index.html" class="btn">View Site</a>
+        <button id="logout-btn" class="btn primary">Logout</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container admin-container" style="display: none;" id="admin-dashboard">
+    <section class="admin-section">
+      <div class="section-head">
+        <h2>General Settings</h2>
+      </div>
+      <div class="admin-card glass-card">
+        <div class="form-group">
+          <label>Site Title</label>
+          <input type="text" id="site-title" class="admin-input">
+        </div>
+        <div class="form-group">
+          <label>Hero Heading</label>
+          <input type="text" id="hero-heading" class="admin-input">
+        </div>
+        <div class="form-group">
+          <label>Hero Subtext</label>
+          <textarea id="hero-sub" class="admin-input" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Contact Email</label>
+          <input type="email" id="contact-email" class="admin-input">
+        </div>
+        <div class="form-group">
+          <label>Contact Whatsapp (Phone Number)</label>
+          <input type="text" id="contact-phone" class="admin-input">
+        </div>
+        <div class="form-group">
+          <label>Logo Upload (Image)</label>
+          <input type="file" id="logo-upload" class="admin-input" accept="image/*">
+          <img id="logo-preview" src="" alt="Logo Preview" style="max-height: 80px; margin-top: 10px; border-radius: 8px;">
+        </div>
+        <button class="btn primary" id="save-general">Save Settings</button>
+      </div>
+    </section>
+
+    <section class="admin-section">
+      <div class="section-head">
+        <h2>Manage Projects</h2>
+      </div>
+      <div class="admin-card glass-card">
+        <div id="projects-list" class="admin-list"></div>
+        <hr style="border: 1px solid var(--border); margin: 20px 0;">
+        <h3>Add New Project</h3>
+        <div class="form-group">
+          <input type="text" id="proj-type" class="admin-input" placeholder="Filter Type (web, ui, brand)">
+        </div>
+        <div class="form-group">
+          <input type="text" id="proj-meta" class="admin-input" placeholder="Meta Tag (e.g. Website, UI)">
+        </div>
+        <div class="form-group">
+          <input type="text" id="proj-title" class="admin-input" placeholder="Project Title">
+        </div>
+        <div class="form-group">
+          <textarea id="proj-desc" class="admin-input" placeholder="Project Description" rows="2"></textarea>
+        </div>
+        <button class="btn primary" id="add-project">Add Project</button>
+      </div>
+    </section>
+
+    <section class="admin-section">
+      <div class="section-head">
+        <h2>Manage Stats</h2>
+      </div>
+      <div class="admin-card glass-card">
+        <div id="stats-list" class="admin-list"></div>
+        <button class="btn primary" id="save-stats" style="margin-top: 15px;">Save Stats</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
